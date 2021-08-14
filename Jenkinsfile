@@ -16,7 +16,7 @@ pipeline {
 //         upstream(upstreamProjects: "../testjob/master", threshold: hudson.model.Result.SUCCESS)
 //     }
   triggers {
-   upstream(upstreamProjects: 'testjob/master,test1/master', threshold: hudson.model.Result.SUCCESS)
+   upstream(upstreamProjects: 'testjob/main', threshold: hudson.model.Result.SUCCESS)
   }
   stages{
     stage('Build') {
