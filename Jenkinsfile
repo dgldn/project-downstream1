@@ -1,6 +1,11 @@
 pipeline {
   agent any
-  triggers { upstream(upstreamProjects: 'testjob', threshold: hudson.model.Result.SUCCESS) }
+//   triggers { 
+//     upstream(upstreamProjects: "testjob", threshold: hudson.model.Result.SUCCESS) 
+//   }
+  triggers {
+    upstream("testjob", threshold: hudson.model.Result.SUCCESS)
+  }
   stages{
     stage('Build') {
       steps{
