@@ -9,8 +9,15 @@ pipeline {
 //   triggers {
 //     upstream('testjob', thresholdhudson.model.Result.SUCCESS)
 //   }
+//   triggers {
+//   upstream 'testjob'
+//   }
+//   triggers {  
+//         upstream(upstreamProjects: "../testjob/master", threshold: hudson.model.Result.SUCCESS)
+//     }
   triggers {
-  upstream 'testjob'
+   upstream(
+        ‘testjob/master,test1/master’, thresholdhudson.model.Result.SUCCESS)
   }
   stages{
     stage('Build') {
